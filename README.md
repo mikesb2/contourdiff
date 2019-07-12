@@ -1,7 +1,8 @@
-![](collage1.jpg)<!-- -->
 # ContourDiff
 ContourDiff is a vector-based visualization over contour plots to analyze the trends of change across spatial regions and temporal domain. ContourDiff is written in python. ContourDiff first, aggregates for each location, the information around the neighbouring points over the temporal domain and then, creates a vector field that extracts the vectors associated to the contour paths. Finally, it overlays the
 prominent vectors along the contour paths, revealing the differential trends that the contour lines experienced over time. 
+
+![](collage1.jpg)<!-- -->
 
 This readme explains how to set-up and use this code as well as the Dataset Description and input data format.
 
