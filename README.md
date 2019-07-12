@@ -1,5 +1,5 @@
 # ContourDiff
-ContourDiff is a vector-based visualization over contour plots to analyze the trends of change across spatial regions and temporal domain. ContourDiff is written in python. ContourDiff first, aggregates for each location, the information around the neighbouring points over the temporal domain and then, creates a vector field that extracts the vectors associated to the contour paths. Finally, it overlays the
+ContourDiff is a vector-based visualization over contour plots to analyze the trends of change across spatial regions and temporal domain. ContourDiff is written in python 3.7. ContourDiff first, aggregates for each location, the information around the neighbouring points over the temporal domain and then, creates a vector field that extracts the vectors associated to the contour paths. Finally, it overlays the
 prominent vectors along the contour paths, revealing the differential trends that the contour lines experienced over time. 
 
 ![](collage1.jpg)<!-- -->
@@ -17,3 +17,8 @@ This code can take any number of input files (more than 1). For example, we want
 1. Pandas - 0.23.4: This module is used to create a dataframe from the input CSV files to do further analysis and computation.
 2. Numpy - 1.15.4: This module is used to create 2-dimensional arrays from the dataframe and perform the required computation before       plotting the resultant values as a figure.
 3. Matplotlib - 3.0.2: This module is used to display figures from computation performed based on user input.
+4. Shapely - 1.6.4: This module is used to create the polygons.
+5. Scipy - 1.3.0: This module is used for polygon simplification.
+
+# Running Code and Genreating Images
+1. 
