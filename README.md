@@ -32,7 +32,9 @@ This code can take any number of input files (more than 1). For example, we want
    Example: python App.py -l 2013-03-01.csv 2014-03-01.csv 2015-03-01.csv -c SMOIS
 3. Code Description: 
    App.py: This is the main application that takes command from the users and calls other two files.
+   
    Data.py: This portion of the code processes all the data to get it ready for visualization.
+   
    GenerateImages.py: This portion visualizes trends for the data on top of a contourmap.
 
 # Output for different variables:
