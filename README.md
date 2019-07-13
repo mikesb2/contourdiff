@@ -24,8 +24,11 @@ This code can take any number of input files (more than 1). For example, we want
 1. Download the full repository using Git.
 2. Run the following command line:
    python App.py -l <input_file_names> -c <column_name>
+   
    input_file_names: names of the .csv input files need to be inserted. For example, in the repository, we have included three .csv        files named '2013-03-01.csv', '2014-03-01.csv', '2015-03-01.csv' to show the trends of change for 3 years. 
+   
    column_name: There are 26 parameters in 26 columns in each .csv file included. So, name of one parameter needs to be inserted to        visualize the trend of that geospatial variable.
+   
    Example: python App.py -l 2013-03-01.csv 2014-03-01.csv 2015-03-01.csv -c SMOIS
 3. Code Description: 
    App.py: This is the main application that takes command from the users and calls other two files.
@@ -34,7 +37,8 @@ This code can take any number of input files (more than 1). For example, we want
 
 # Output for different variables:
 SMOIS data provides the following output:
-
+![](SMOIS.png)<!-- -->
 TSK data provides the following output:
-
+![](TSK.png)<!-- -->
 GLW data provides the following output:
+![](GLW.png)<!-- -->
