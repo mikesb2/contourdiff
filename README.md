@@ -46,3 +46,6 @@ TSK data provides the following output:
 ![](TSK.png)<!-- -->
 GLW data provides the following output:
 ![](GLW.png)<!-- -->
+
+# Submitted Paper:
+A short paper on this work has already been submitted in VIS 2019 titled "ContourDiff: Revealing Trends in SpatioTemporal Data". 
