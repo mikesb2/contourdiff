@@ -23,6 +23,7 @@ This code can take any number of input files (more than 1). For example, we want
 # Running Code and Genreating Images
 1. Download the full repository using Git.
 2. Run the following command line:
+
    python App.py -l <input_file_names> -c <column_name>
    
    input_file_names: names of the .csv input files need to be inserted. For example, in the repository, we have included three .csv        files named '2013-03-01.csv', '2014-03-01.csv', '2015-03-01.csv' to show the trends of change for 3 years. 
@@ -31,6 +32,7 @@ This code can take any number of input files (more than 1). For example, we want
    
    Example: python App.py -l 2013-03-01.csv 2014-03-01.csv 2015-03-01.csv -c SMOIS
 3. Code Description: 
+
    App.py: This is the main application that takes command from the users and calls other two files.
    
    Data.py: This portion of the code processes all the data to get it ready for visualization.
