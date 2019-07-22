@@ -14,13 +14,13 @@ def main(list_of_files,column):
         data.to_csv('Dataset/'+'data'+str(i)+'.csv')
         file_list.append('Dataset/'+'data'+str(i)+'.csv')
     data = DataProcessing.importData(file_list[0])
-    data['levels'] = (data["SMOIS"] - data["SMOIS"].min())/(data["SMOIS"].max() - data["SMOIS"].min())
+    data['levels'] = (data[column] - data[column].min())/(data[column].max() - data[column].min())
     levels = [0.25,0.5,0.75]
     cntr_set=plt.contour(np.array(data['levels']).reshape(699,639),levels,colors=['g','r','y'])
     cntr_data = DataProcessing.modelTheGraph(cntr_set)
-    weighted_graph = DataProcessing.createWeightedGraph(cntr_data,file_list,'SMOIS')
+    weighted_graph = DataProcessing.createWeightedGraph(cntr_data,file_list,column)
     filtered_graph = DataProcessing.filterBasedOnGrid(10,weighted_graph)
-    GenerateImages.generateImages(filtered_graph,data)
+    GenerateImages.generateImages(filtered_graph,data,column)
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Contourdiff")
     parser.add_argument('-l', '--file_list', nargs='+', help='<Required> Set flag', required=True)
