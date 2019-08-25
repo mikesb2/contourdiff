@@ -2,6 +2,7 @@ import numpy as np
 
 import pandas as pd
 import matplotlib.pyplot as plt
+import time
 
 
 def importData(filename):
@@ -20,19 +21,35 @@ def modelTheGraph(contourset):
     """Model the graph as dataframe from contourset"""
     cntr_data = pd.DataFrame(columns=['level', 'node_x', 'node_y', 'path'])
     frames = list()
+    start_time_model_graph = time.time()
     for level_index in range(len(contourset.collections)):
-        paths = contourset.collections[level_index].get_paths()
-        for path_index in range(len(paths)):
-            temp_cntr_df = pd.DataFrame(columns=['level', 'node_x', 'node_y', 'path'])
-            path_vertices = paths[path_index].vertices
-            path_vertice_x = path_vertices[:, 0]
-            path_vertice_y = path_vertices[:, 1]
-            temp_cntr_df['level'] = np.full(len(path_vertice_x), level_index)
-            temp_cntr_df['node_x'] = path_vertice_x.tolist()
-            temp_cntr_df['node_y'] = path_vertice_y.tolist()
-            temp_cntr_df['path'] = np.full(len(path_vertice_x), path_index)
-            frames.append(temp_cntr_df)
-    cntr_data = pd.concat(frames)
+        path_counter = 0
+        indices = np.arange(0, len(contourset.collections[level_index].get_paths()))
+        array_list = np.take(contourset.collections[level_index].get_paths(), indices)
+        for item in array_list.flat:
+            node_x = item.vertices[:, 0].tolist()
+            node_y = item.vertices[:, 1].tolist()
+            frames.append([level_index, node_x, node_y, path_counter])
+            path_counter += 1
+    df = pd.DataFrame(frames, columns=['level', 'node_x', 'node_y', 'path'])
+    df1 = df[['level', 'node_y', 'path']]
+    df2 = df[['level', 'node_x', 'path']]
+    lst_col = 'node_y'
+    r1 = pd.DataFrame({
+        col: np.repeat(df1[col].values, df1[lst_col].str.len())
+        for col in df1.columns.drop(lst_col)}
+    ).assign(**{lst_col: np.concatenate(df1[lst_col].values)})[df1.columns]
+    lst_col2 = 'node_x'
+    r2 = pd.DataFrame({
+        col: np.repeat(df2[col].values, df2[lst_col2].str.len())
+        for col in df2.columns.drop(lst_col2)}
+    ).assign(**{lst_col2: np.concatenate(df2[lst_col2].values)})[df2.columns]
+    cntr_data['level'] = r1['level'].tolist()
+    cntr_data['node_x'] = r2['node_x'].tolist()
+    cntr_data['node_y'] = r1['node_y'].tolist()
+    cntr_data['path'] = r1['path'].tolist()
+    print("For modeling the graph %s seconds" % (time.time() - start_time_model_graph))
+
     return cntr_data
 
 
@@ -63,7 +80,7 @@ def dir_mag_by_5(filelist, column_name):
                  'dir_21': padded_matrix_2[0:-4, 3:-1], 'dir_22': padded_matrix_2[0:-4, 1:-3],
                  'dir_23': padded_matrix_2[1:-3, 4:]
                  }
-
+        start_time_dir_mag = time.time()
         for i in range(24):
             if (i < 8):
                 direction[:, :, i] = org - dirs['dir_' + str(i)]
@@ -71,6 +88,7 @@ def dir_mag_by_5(filelist, column_name):
                 direction[:, :, i] = org - dirs2['dir_' + str(i)]
             mag_list.append(np.linalg.norm(direction, axis=2))
             dir_list.append(direction)
+        print("For computing direction and magnitude %s seconds" %(time.time() - start_time_dir_mag))
         return mag_list, dir_list
 
 
@@ -79,6 +97,7 @@ def draw_dirs2(filelist, column_name):
     mag, direction = dir_mag_by_5(filelist, column_name)
     res_dir_x_list = list()
     res_dir_y_list = list()
+    start_time_vector_components = time.time()
     for i in range(len(filelist)):
         res_dir_x = np.zeros_like(mag[i])
         res_dir_y = np.zeros_like(mag[i])
@@ -91,12 +110,15 @@ def draw_dirs2(filelist, column_name):
                 res_dir_y += direction[i][:, :, d] * np.sin(np.pi / 8 * 2 * (d % 8) + 1)
                 res_dir_x_list.append(res_dir_x)
                 res_dir_y_list.append(res_dir_y)
+    print("For computing vector components %s seconds" % (time.time() - start_time_vector_components))
 
-        return res_dir_x_list, res_dir_y_list, mag, direction
+    return res_dir_x_list, res_dir_y_list, mag, direction
 
 
 def fetch_direction(file_list, column_name):
+
     """Aggregate resultant direction in"""
+    start_time_aggrigating_vector_components = time.time()
     res_dir_x_list, res_dir_y_list, mag, direction = draw_dirs2(file_list, column_name)
     all_in_x = np.zeros_like(mag[0])
     all_in_y = np.zeros_like(mag[0])
@@ -112,11 +134,13 @@ def fetch_direction(file_list, column_name):
     data['res_x'] = res_x
     data['res_y'] = res_y
     data['res_mag'] = res_mag
+    print("For aggregating vector components %s seconds" % (time.time() - start_time_aggrigating_vector_components))
     return data
 
 
 def createWeightedGraph(contourdf, file_list, column_name):
     """Created a weighted graph from extracted contour"""
+    start_time_creating_weighted_graph = time.time()
     weights = np.full((len(contourdf)), 1)  # initialize weights to one
     contourdf['weights'] = weights
     # group the dataframe to count path_length(number of nodes in the path)
@@ -136,9 +160,13 @@ def createWeightedGraph(contourdf, file_list, column_name):
     cntr_data__weight_1['calculated_weight'] = cntr_data_weight_1_diffrence['calculated_weight'].tolist()
     cntr_data__weight_1['path_diff'] = cntr_data_weight_1_diffrence['path'].tolist()
     weight_list = cntr_data__weight_1['calculated_weight'].tolist()
-    for i in range(len(cntr_data__weight_1)):
-        if (cntr_data__weight_1.iloc[i,]['path_diff'] != 0):
-            weight_list[i] = weight_list[i + 1]
+    # for index,row in cntr_data__weight_1.iterrows():
+    #     if(row['path_diff'] != 0):
+    #         weight_list[index] = weight_list[index + 1]
+    indices = cntr_data__weight_1.loc[cntr_data__weight_1['path_diff'] != 0]
+    for index, row in indices.iterrows():
+        weight_list[index] = weight_list[index + 1]
+    cntr_data__weight_1['act2'] = weight_list
     cntr_data__weight_1['actual_weight'] = weight_list
     cntr_data__weight_1 = cntr_data__weight_1[['level', 'node_x', 'node_y', 'path', 'actual_weight']]
     cntr_data_weight_0['actual_weight'] = cntr_data_weight_0['weights']
@@ -173,11 +201,13 @@ def createWeightedGraph(contourdf, file_list, column_name):
         'aggregated_weight']
 
     weighted_df['resultant'] = weighted_df['res_dir_x_1'] + weighted_df['res_dir_y_1']
+    print("For creating a weighted graph %s seconds" % (time.time() - start_time_creating_weighted_graph))
 
     return weighted_df
 
 
 def filterBasedOnGrid(grid_size, weighted_graph):
+    """Grid"""
     x_grid = np.arange(0, 700, grid_size)
     y_grid = np.arange(0, 640, grid_size)
     weighted_graph = weighted_graph[
