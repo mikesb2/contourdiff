@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import time
-
+from QuadTree import QTree
 
 def importData(filename):
     """Read data from csv file and transform it into dataframe"""
@@ -206,12 +206,17 @@ def createWeightedGraph(contourdf, file_list, column_name):
     return weighted_df
 
 
-def filterBasedOnGrid(grid_size, weighted_graph):
+def filterBasedOnGrid(depth, weighted_graph):
     """Grid"""
-    x_grid = np.arange(0, 700, grid_size)
-    y_grid = np.arange(0, 640, grid_size)
+    points = list(zip(weighted_graph['node_x'].tolist(), weighted_graph['node_y'].tolist()))
+    qtree = QTree(2, points)
+    qtree.subdivide()
+    h = qtree.graph()
+    x_grid = np.unique(np.array(h[0])//1).tolist()
+    y_grid =  np.unique(np.array(h[1])//1).tolist()
     weighted_graph = weighted_graph[
         (np.isin(weighted_graph['node_x'], x_grid)) | (np.isin(weighted_graph['node_y'], y_grid))]
+    # print(x_grid)
     return weighted_graph
 
 

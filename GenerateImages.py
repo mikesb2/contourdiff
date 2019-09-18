@@ -15,7 +15,7 @@ def generateImages(filtered_graph,data,column):
     levels = [0.25, 0.5, 0.75]
     fig = plt.figure(figsize=(18, 16), dpi=80)
     ax3 = fig.add_subplot(111)
-    # plt.contour(np.array(data['levels']).reshape(699, 639), levels,cmap='cool')
+    plt.contour(np.array(data['levels']).reshape(699, 639), levels,cmap='autumn')
     plt.contourf(np.array(data['levels']).reshape(699, 639), levels, cmap='autumn', alpha=0.7)
     filtered_graph = filtered_graph[filtered_graph['normalized'] >= 0.01]
     filtered_graph_level_0 = filtered_graph[(filtered_graph['level'] == 0)]
@@ -106,19 +106,10 @@ def generateImages(filtered_graph,data,column):
     df1 = filtered_graph[filtered_graph['resultant'] >= 0]
     df2 = filtered_graph[filtered_graph['resultant'] <  0]
 
-    # for index, row in filtered_graph.iterrows():
-    #     if (row['resultant'] >= 0):
-    #         plt.quiver(row['node_x'], row['node_y'], row['res_dir_x_1'], row['res_dir_y_1'],
-    #                    width=0.002, headwidth=5.5, headlength=5.5, color='black', scale=500)
-    #     else:
-    #         plt.quiver(row['node_x'], row['node_y'], row['res_dir_x_1'], row['res_dir_y_1'],
-    #                    width=0.002, headwidth=5.5, headlength=5.5, color='blue', scale=500)
-
     plt.quiver(df1['node_x'], df1['node_y'], df1['res_dir_x_1'], df1['res_dir_y_1'],
-                       width=0.002, headwidth=5.5, headlength=5.5, color='black', scale=500)
+               width=0.0009, headwidth=5.5, headlength=5.5, color='black', scale=2000)
 
     plt.quiver(df2['node_x'], df2['node_y'], df2['res_dir_x_1'], df2['res_dir_y_1'],
-                       width=0.002, headwidth=5.5, headlength=5.5, color='blue', scale=500)
-    # plt.savefig('SMOIS_13_14_15_second.png')
+               width=0.0009, headwidth=5.5, headlength=5.5, color='blue', scale=2000)
     print("For creating quiver plot %s seconds" % (time.time() - start_time_for_quiver_plot))
     plt.show()
