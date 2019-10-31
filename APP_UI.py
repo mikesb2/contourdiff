@@ -63,7 +63,7 @@ class Ui_MainWindow(object):
         # self.graphicsView_Image.setFont(font)
         # self.graphicsView_Image.setObjectName("graphicsView_Image")
         self.canvas = Canvas(self.Whole_Frame, 10, 8, 100)
-        self.canvas.setGeometry(QtCore.QRect(0, 0, 1011, 781))
+        self.canvas.setGeometry(QtCore.QRect(0, 0, 1050, 820))
         self.nav = NavigationToolbar(self.canvas, self.Whole_Frame, coordinates=True)
         self.nav.setGeometry(0, 0, 1011, 30)
 
@@ -152,7 +152,7 @@ class Ui_MainWindow(object):
         self.Contour = QtWidgets.QWidget()
         self.Contour.setObjectName("Contour")
         self.groupBox_contours = QtWidgets.QGroupBox(self.Contour)
-        self.groupBox_contours.setGeometry(QtCore.QRect(-1, 6, 206, 91))
+        self.groupBox_contours.setGeometry(QtCore.QRect(0, 6, 204, 91))
         self.groupBox_contours.setAutoFillBackground(False)
         self.groupBox_contours.setFlat(False)
         self.groupBox_contours.setCheckable(True)
@@ -172,9 +172,24 @@ class Ui_MainWindow(object):
         self.horizontalSlider_opacity_contours.setGeometry(QtCore.QRect(3, 0, 103, 21))
         self.horizontalSlider_opacity_contours.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider_opacity_contours.setObjectName("horizontalSlider_opacity_contours")
-        self.lineEdit_opacity_contours = QtWidgets.QLineEdit(self.frame_opacity_contours)
-        self.lineEdit_opacity_contours.setGeometry(QtCore.QRect(108, 0, 27, 20))
-        self.lineEdit_opacity_contours.setObjectName("lineEdit_opacity_contours")
+
+
+        # self.lineEdit_opacity_contours = QtWidgets.QLineEdit(self.frame_opacity_contours)
+        # self.lineEdit_opacity_contours.setGeometry(QtCore.QRect(108, 0, 27, 20))
+        # self.lineEdit_opacity_contours.setObjectName("lineEdit_opacity_contours")
+## EDIT ###########
+        self.label_opacity_contours_value = QtWidgets.QLabel(self.frame_opacity_contours)
+        self.label_opacity_contours_value.setGeometry(QtCore.QRect(108, 0, 27, 20))
+        self.label_opacity_contours_value.setText("")
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.label_opacity_contours_value.setFont(font)
+        self.label_opacity_contours_value.setObjectName("label_opacity_contours_value")
+        self.label_opacity_contours_value.setFrameShape(QtWidgets.QFrame.Box)
+
         self.label_opacity_contours = QtWidgets.QLabel(self.groupBox_contours)
         self.label_opacity_contours.setGeometry(QtCore.QRect(5, 69, 47, 13))
         self.label_opacity_contours.setObjectName("label_opacity_contours")
@@ -189,7 +204,7 @@ class Ui_MainWindow(object):
         icon1.addPixmap(QtGui.QPixmap(":/newPrefix/obspy-imaging-cm-1.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.comboBox_colormap_contours.addItem(icon1, "")
         self.groupBox_lines = QtWidgets.QGroupBox(self.Contour)
-        self.groupBox_lines.setGeometry(QtCore.QRect(-1, 101, 206, 101))
+        self.groupBox_lines.setGeometry(QtCore.QRect(0, 101, 204, 101))
         self.groupBox_lines.setCheckable(True)
         self.groupBox_lines.setObjectName("groupBox_lines")
         self.frame_opacity_lines = QtWidgets.QFrame(self.groupBox_lines)
@@ -201,9 +216,23 @@ class Ui_MainWindow(object):
         self.horizontalSlider_opacity_lines.setGeometry(QtCore.QRect(3, 0, 102, 21))
         self.horizontalSlider_opacity_lines.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider_opacity_lines.setObjectName("horizontalSlider_opacity_lines")
-        self.lineEdit_opacity_lines = QtWidgets.QLineEdit(self.frame_opacity_lines)
-        self.lineEdit_opacity_lines.setGeometry(QtCore.QRect(106, 0, 27, 20))
-        self.lineEdit_opacity_lines.setObjectName("lineEdit_opacity_lines")
+
+        # self.lineEdit_opacity_lines = QtWidgets.QLineEdit(self.frame_opacity_lines)
+        # self.lineEdit_opacity_lines.setGeometry(QtCore.QRect(106, 0, 27, 20))
+        # self.lineEdit_opacity_lines.setObjectName("lineEdit_opacity_lines")
+# EDIT ######
+        self.label_opacity_lines_value = QtWidgets.QLabel(self.frame_opacity_lines)
+        self.label_opacity_lines_value.setGeometry(QtCore.QRect(106, 0, 27, 20))
+        self.label_opacity_lines_value.setText("")
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.label_opacity_lines_value.setFont(font)
+        self.label_opacity_lines_value.setObjectName("label_opacity_lines_value")
+        self.label_opacity_lines_value.setFrameShape(QtWidgets.QFrame.Box)
+
         self.label_color_lines = QtWidgets.QLabel(self.groupBox_lines)
         self.label_color_lines.setGeometry(QtCore.QRect(5, 21, 47, 13))
         self.label_color_lines.setObjectName("label_color_lines")
@@ -226,9 +255,23 @@ class Ui_MainWindow(object):
         self.horizontalSlider_line_width.setGeometry(QtCore.QRect(3, 0, 102, 21))
         self.horizontalSlider_line_width.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider_line_width.setObjectName("horizontalSlider_line_width")
-        self.lineEdit_line_width = QtWidgets.QLineEdit(self.frame_line_width)
-        self.lineEdit_line_width.setGeometry(QtCore.QRect(106, 0, 27, 20))
-        self.lineEdit_line_width.setObjectName("lineEdit_line_width")
+
+        # self.lineEdit_line_width = QtWidgets.QLineEdit(self.frame_line_width)
+        # self.lineEdit_line_width.setGeometry(QtCore.QRect(106, 0, 27, 20))
+        # self.lineEdit_line_width.setObjectName("lineEdit_line_width")
+# EDIT #######
+        self.label_line_width_value = QtWidgets.QLabel(self.frame_line_width)
+        self.label_line_width_value.setGeometry(QtCore.QRect(106, 0, 27, 20))
+        self.label_line_width_value.setText("")
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.label_line_width_value.setFont(font)
+        self.label_line_width_value.setObjectName("label_line_width_value")
+        self.label_line_width_value.setFrameShape(QtWidgets.QFrame.Box)
+
         self.label_line_width = QtWidgets.QLabel(self.groupBox_lines)
         self.label_line_width.setGeometry(QtCore.QRect(5, 70, 51, 16))
         self.label_line_width.setObjectName("label_line_width")
@@ -236,107 +279,116 @@ class Ui_MainWindow(object):
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
         self.groupBox_arrow = QtWidgets.QGroupBox(self.tab_2)
-        self.groupBox_arrow.setGeometry(QtCore.QRect(-1, 10, 205, 121))
+        self.groupBox_arrow.setGeometry(QtCore.QRect(0, 10, 204, 95))
         self.groupBox_arrow.setCheckable(True)
         self.groupBox_arrow.setObjectName("groupBox_arrow")
-        self.frame_arrow_width = QtWidgets.QFrame(self.groupBox_arrow)
-        self.frame_arrow_width.setGeometry(QtCore.QRect(77, 44, 119, 21))
-        self.frame_arrow_width.setFrameShape(QtWidgets.QFrame.Box)
-        self.frame_arrow_width.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.frame_arrow_width.setObjectName("frame_arrow_width")
-        self.horizontalSlider_arrow_width = QtWidgets.QSlider(self.frame_arrow_width)
-        self.horizontalSlider_arrow_width.setGeometry(QtCore.QRect(3, 0, 87, 21))
-        self.horizontalSlider_arrow_width.setOrientation(QtCore.Qt.Horizontal)
-        self.horizontalSlider_arrow_width.setObjectName("horizontalSlider_arrow_width")
-        self.lineEdit_arrow_width = QtWidgets.QLineEdit(self.frame_arrow_width)
-        self.lineEdit_arrow_width.setGeometry(QtCore.QRect(92, 0, 26, 20))
-        self.lineEdit_arrow_width.setObjectName("lineEdit_arrow_width")
-        self.frame_arrow_length = QtWidgets.QFrame(self.groupBox_arrow)
-        self.frame_arrow_length.setGeometry(QtCore.QRect(77, 19, 119, 21))
-        self.frame_arrow_length.setFrameShape(QtWidgets.QFrame.Box)
-        self.frame_arrow_length.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.frame_arrow_length.setObjectName("frame_arrow_length")
-        self.horizontalSlider_arrow_length = QtWidgets.QSlider(self.frame_arrow_length)
-        self.horizontalSlider_arrow_length.setGeometry(QtCore.QRect(3, 0, 87, 21))
-        self.horizontalSlider_arrow_length.setOrientation(QtCore.Qt.Horizontal)
-        self.horizontalSlider_arrow_length.setObjectName("horizontalSlider_arrow_length")
-        self.lineEdit_arrow_length = QtWidgets.QLineEdit(self.frame_arrow_length)
-        self.lineEdit_arrow_length.setGeometry(QtCore.QRect(92, 0, 26, 20))
-        self.lineEdit_arrow_length.setObjectName("lineEdit_arrow_length")
-        self.label_arrow_width = QtWidgets.QLabel(self.groupBox_arrow)
-        self.label_arrow_width.setGeometry(QtCore.QRect(5, 45, 68, 16))
-        self.label_arrow_width.setObjectName("label_arrow_width")
-        self.label_arrow_length = QtWidgets.QLabel(self.groupBox_arrow)
-        self.label_arrow_length.setGeometry(QtCore.QRect(5, 20, 68, 16))
-        self.label_arrow_length.setObjectName("label_arrow_length")
+        # self.frame_arrow_width = QtWidgets.QFrame(self.groupBox_arrow)
+        # self.frame_arrow_width.setGeometry(QtCore.QRect(77, 44, 119, 21))
+        # self.frame_arrow_width.setFrameShape(QtWidgets.QFrame.Box)
+        # self.frame_arrow_width.setFrameShadow(QtWidgets.QFrame.Plain)
+        # self.frame_arrow_width.setObjectName("frame_arrow_width")
+        # self.horizontalSlider_arrow_width = QtWidgets.QSlider(self.frame_arrow_width)
+        # self.horizontalSlider_arrow_width.setGeometry(QtCore.QRect(3, 0, 87, 21))
+        # self.horizontalSlider_arrow_width.setOrientation(QtCore.Qt.Horizontal)
+        # self.horizontalSlider_arrow_width.setObjectName("horizontalSlider_arrow_width")
+        # self.lineEdit_arrow_width = QtWidgets.QLineEdit(self.frame_arrow_width)
+        # self.lineEdit_arrow_width.setGeometry(QtCore.QRect(92, 0, 26, 20))
+        # self.lineEdit_arrow_width.setObjectName("lineEdit_arrow_width")
+        # self.frame_arrow_length = QtWidgets.QFrame(self.groupBox_arrow)
+        # self.frame_arrow_length.setGeometry(QtCore.QRect(105, 19, 119, 21))
+        # self.frame_arrow_length.setFrameShape(QtWidgets.QFrame.Box)
+        # self.frame_arrow_length.setFrameShadow(QtWidgets.QFrame.Plain)
+        # self.frame_arrow_length.setObjectName("frame_arrow_length")
+        # self.horizontalSlider_arrow_length = QtWidgets.QSlider(self.frame_arrow_length)
+        # self.horizontalSlider_arrow_length.setGeometry(QtCore.QRect(3, 0, 87, 21))
+        # self.horizontalSlider_arrow_length.setOrientation(QtCore.Qt.Horizontal)
+        # self.horizontalSlider_arrow_length.setObjectName("horizontalSlider_arrow_length")
+        # self.lineEdit_arrow_length = QtWidgets.QLineEdit(self.frame_arrow_length)
+        # self.lineEdit_arrow_length.setGeometry(QtCore.QRect(92, 0, 26, 20))
+        # self.lineEdit_arrow_length.setObjectName("lineEdit_arrow_length")
+        # self.label_arrow_width = QtWidgets.QLabel(self.groupBox_arrow)
+        # self.label_arrow_width.setGeometry(QtCore.QRect(5, 45, 68, 16))
+        # self.label_arrow_width.setObjectName("label_arrow_width")
+        self.label_arrow_scale = QtWidgets.QLabel(self.groupBox_arrow)
+        self.label_arrow_scale.setGeometry(QtCore.QRect(5, 20, 68, 16))
+        self.label_arrow_scale.setObjectName("label_arrow_scale")
+# EDIT #################
+        self.comboBox_arrow_scale = QtWidgets.QComboBox(self.groupBox_arrow)
+        self.comboBox_arrow_scale.setGeometry(QtCore.QRect(105, 19, 91, 21))
+        self.comboBox_arrow_scale.setObjectName("comboBox_arrow_scale")
+        self.comboBox_arrow_scale.addItem("")
+##############
+
         self.label_arrow_color = QtWidgets.QLabel(self.groupBox_arrow)
-        self.label_arrow_color.setGeometry(QtCore.QRect(5, 71, 81, 16))
+        self.label_arrow_color.setGeometry(QtCore.QRect(5, 71, 100, 16))
         self.label_arrow_color.setObjectName("label_arrow_color")
         self.comboBox_arrow_color = QtWidgets.QComboBox(self.groupBox_arrow)
         self.comboBox_arrow_color.setGeometry(QtCore.QRect(105, 70, 91, 21))
         self.comboBox_arrow_color.setIconSize(QtCore.QSize(75, 40))
         self.comboBox_arrow_color.setObjectName("comboBox_arrow_color")
         self.comboBox_arrow_color.addItem("")
+
         self.label_arrow_color_2 = QtWidgets.QLabel(self.groupBox_arrow)
-        self.label_arrow_color_2.setGeometry(QtCore.QRect(5, 97, 81, 16))
+        self.label_arrow_color_2.setGeometry(QtCore.QRect(5, 45, 100, 16))
         self.label_arrow_color_2.setObjectName("label_arrow_color_2")
         self.comboBox_arrow_color_2 = QtWidgets.QComboBox(self.groupBox_arrow)
-        self.comboBox_arrow_color_2.setGeometry(QtCore.QRect(105, 96, 91, 21))
+        self.comboBox_arrow_color_2.setGeometry(QtCore.QRect(105, 44, 91, 21))
         self.comboBox_arrow_color_2.setIconSize(QtCore.QSize(75, 40))
         self.comboBox_arrow_color_2.setObjectName("comboBox_arrow_color_2")
         self.comboBox_arrow_color_2.addItem("")
         self.tabWidget_content_properties.addTab(self.tab_2, "")
+        #COMPASS####################
         self.label_compass = QtWidgets.QLabel(self.Whole_Frame)
-        self.label_compass.setGeometry(QtCore.QRect(945, 2, 111, 111))
+        self.label_compass.setGeometry(QtCore.QRect(600, 0, 90, 90))
         self.label_compass.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.label_compass.setFrameShadow(QtWidgets.QFrame.Raised)
         self.label_compass.setText("")
-        self.label_compass.setPixmap(QtGui.QPixmap(":/newPrefix/compass-design_1174-3.jpg"))
+        self.label_compass.setPixmap(QtGui.QPixmap("C:/Users/Phoenix/Desktop/contourdiff-master/compass-design_1174-3.jpg"))
         self.label_compass.setScaledContents(True)
         self.label_compass.setWordWrap(False)
         self.label_compass.setObjectName("label_compass")
         self.widget = QtWidgets.QWidget(self.Whole_Frame)
         self.widget.setGeometry(QtCore.QRect(2, 802, 1061, 22))
         self.widget.setObjectName("widget")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.widget)
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.label_X = QtWidgets.QLabel(self.widget)
-        font = QtGui.QFont()
-        font.setFamily("Georgia")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_X.setFont(font)
-        self.label_X.setObjectName("label_X")
-        self.horizontalLayout.addWidget(self.label_X)
-        self.line_X = QtWidgets.QLineEdit(self.widget)
-        self.line_X.setObjectName("line_X")
-        self.horizontalLayout.addWidget(self.line_X)
-        self.label_Y = QtWidgets.QLabel(self.widget)
-        font = QtGui.QFont()
-        font.setFamily("Georgia")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_Y.setFont(font)
-        self.label_Y.setObjectName("label_Y")
-        self.horizontalLayout.addWidget(self.label_Y)
-        self.line_Y = QtWidgets.QLineEdit(self.widget)
-        self.line_Y.setObjectName("line_Y")
-        self.horizontalLayout.addWidget(self.line_Y)
-        self.label_value = QtWidgets.QLabel(self.widget)
-        font = QtGui.QFont()
-        font.setFamily("Georgia")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_value.setFont(font)
-        self.label_value.setObjectName("label_value")
-        self.horizontalLayout.addWidget(self.label_value)
-        self.line_Value = QtWidgets.QLineEdit(self.widget)
-        self.line_Value.setObjectName("line_Value")
-        self.horizontalLayout.addWidget(self.line_Value)
+        # self.horizontalLayout = QtWidgets.QHBoxLayout(self.widget)
+        # self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        # self.horizontalLayout.setObjectName("horizontalLayout")
+        # self.label_X = QtWidgets.QLabel(self.widget)
+        # font = QtGui.QFont()
+        # font.setFamily("Georgia")
+        # font.setPointSize(10)
+        # font.setBold(True)
+        # font.setWeight(75)
+        # self.label_X.setFont(font)
+        # self.label_X.setObjectName("label_X")
+        # self.horizontalLayout.addWidget(self.label_X)
+        # self.line_X = QtWidgets.QLineEdit(self.widget)
+        # self.line_X.setObjectName("line_X")
+        # self.horizontalLayout.addWidget(self.line_X)
+        # self.label_Y = QtWidgets.QLabel(self.widget)
+        # font = QtGui.QFont()
+        # font.setFamily("Georgia")
+        # font.setPointSize(10)
+        # font.setBold(True)
+        # font.setWeight(75)
+        # self.label_Y.setFont(font)
+        # self.label_Y.setObjectName("label_Y")
+        # self.horizontalLayout.addWidget(self.label_Y)
+        # self.line_Y = QtWidgets.QLineEdit(self.widget)
+        # self.line_Y.setObjectName("line_Y")
+        # self.horizontalLayout.addWidget(self.line_Y)
+        # self.label_value = QtWidgets.QLabel(self.widget)
+        # font = QtGui.QFont()
+        # font.setFamily("Georgia")
+        # font.setPointSize(10)
+        # font.setBold(True)
+        # font.setWeight(75)
+        # self.label_value.setFont(font)
+        # self.label_value.setObjectName("label_value")
+        # self.horizontalLayout.addWidget(self.label_value)
+        # self.line_Value = QtWidgets.QLineEdit(self.widget)
+        # self.line_Value.setObjectName("line_Value")
+        # self.horizontalLayout.addWidget(self.line_Value)
 
     def setupMapProperties(self):
         comboboxfont = QtGui.QFont()
@@ -448,10 +500,25 @@ class Ui_MainWindow(object):
         self.horizontalSlider_magnitude.setGeometry(QtCore.QRect(2, 0, 95, 18))
         self.horizontalSlider_magnitude.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider_magnitude.setObjectName("horizontalSlider_magnitude")
-        self.lineEdit_magnitude = QtWidgets.QLineEdit(self.frame_magnitude)
-        self.lineEdit_magnitude.setFont(line_edit_font)
-        self.lineEdit_magnitude.setGeometry(QtCore.QRect(99, 0, 30, 17))
-        self.lineEdit_magnitude.setObjectName("lineEdit_magnitude")
+
+        # self.lineEdit_magnitude = QtWidgets.QLineEdit(self.frame_magnitude)
+        # self.lineEdit_magnitude.setFont(line_edit_font)
+        # self.lineEdit_magnitude.setGeometry(QtCore.QRect(99, 0, 30, 17))
+        # self.lineEdit_magnitude.setObjectName("lineEdit_magnitude")
+
+# EDIT ##########
+        self.label__magnitude_value = QtWidgets.QLabel(self.frame_magnitude)
+        self.label__magnitude_value.setGeometry(QtCore.QRect(99, 0, 30, 17))
+        self.label__magnitude_value.setText("")
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.label__magnitude_value.setFont(font)
+        self.label__magnitude_value.setObjectName("label__magnitude_value")
+        self.label__magnitude_value.setFrameShape(QtWidgets.QFrame.Box)
+
         self.pushButton_mapproperties_apply = QtWidgets.QPushButton(self.groupBox_map_properties)
         self.pushButton_mapproperties_apply.setGeometry(QtCore.QRect(105, 145, 93, 21))
         font = QtGui.QFont()
@@ -497,6 +564,7 @@ class Ui_MainWindow(object):
         self.groupBox_data_properties.setFont(font)
         self.groupBox_data_properties.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox_data_properties.setObjectName("groupBox_data_properties")
+
         self.label_isoline1 = QtWidgets.QLabel(self.groupBox_data_properties)
         self.label_isoline1.setGeometry(QtCore.QRect(6, 182, 51, 16))
         font = QtGui.QFont()
@@ -506,6 +574,7 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         self.label_isoline1.setFont(font)
         self.label_isoline1.setObjectName("label_isoline1")
+
         self.label_isoline2 = QtWidgets.QLabel(self.groupBox_data_properties)
         self.label_isoline2.setGeometry(QtCore.QRect(6, 206, 51, 16))
         font = QtGui.QFont()
@@ -514,6 +583,7 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         self.label_isoline2.setFont(font)
         self.label_isoline2.setObjectName("label_isoline2")
+
         self.label_isoline3 = QtWidgets.QLabel(self.groupBox_data_properties)
         self.label_isoline3.setGeometry(QtCore.QRect(6, 230, 51, 16))
         font = QtGui.QFont()
@@ -522,6 +592,7 @@ class Ui_MainWindow(object):
         font.setWeight(50)
         self.label_isoline3.setFont(font)
         self.label_isoline3.setObjectName("label_isoline3")
+
         self.pushButton_distribution = QtWidgets.QPushButton(self.groupBox_data_properties)
         self.pushButton_distribution.setGeometry(QtCore.QRect(7, 48, 191, 22))
         font = QtGui.QFont()
@@ -531,6 +602,7 @@ class Ui_MainWindow(object):
         self.pushButton_distribution.setFont(font)
         self.pushButton_distribution.setObjectName("pushButton_distribution")
         self.pushButton_distribution.clicked.connect(self.setPushButton_distrbution)
+
         self.frame_isoline1 = QtWidgets.QFrame(self.groupBox_data_properties)
         self.frame_isoline1.setGeometry(QtCore.QRect(57, 182, 140, 21))
         self.frame_isoline1.setFrameShape(QtWidgets.QFrame.Box)
@@ -540,10 +612,24 @@ class Ui_MainWindow(object):
         self.horizontalSlider_isoline1.setGeometry(QtCore.QRect(3, 0, 103, 21))
         self.horizontalSlider_isoline1.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider_isoline1.setObjectName("horizontalSlider_isoline1")
-        self.lineEdit_isoline1 = QtWidgets.QLineEdit(self.frame_isoline1)
-        self.lineEdit_isoline1.setFont(line_edit_font)
-        self.lineEdit_isoline1.setGeometry(QtCore.QRect(109, 0, 30, 20))
-        self.lineEdit_isoline1.setObjectName("lineEdit_isoline1")
+        # self.lineEdit_isoline1 = QtWidgets.QLineEdit(self.frame_isoline1)
+        # self.lineEdit_isoline1.setFont(line_edit_font)
+        # self.lineEdit_isoline1.setGeometry(QtCore.QRect(109, 0, 30, 20))
+        # self.lineEdit_isoline1.setObjectName("lineEdit_isoline1")
+
+# EDIT ###########
+        self.label_isoline1_value = QtWidgets.QLabel(self.frame_isoline1)
+        self.label_isoline1_value.setGeometry(QtCore.QRect(109, 0, 30, 20))
+        self.label_isoline1_value.setText("")
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.label_isoline1_value.setFont(font)
+        self.label_isoline1_value.setObjectName("label_isoline1_value")
+        self.label_isoline1_value.setFrameShape(QtWidgets.QFrame.Box)
+
         # self.graphicsView_distribution = QtWidgets.QGraphicsView(self.groupBox_data_properties)
         # self.graphicsView_distribution.setGeometry(QtCore.QRect(7, 75, 191, 101))
         # self.graphicsView_distribution.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -553,14 +639,30 @@ class Ui_MainWindow(object):
         self.frame_isoline2.setFrameShape(QtWidgets.QFrame.Box)
         self.frame_isoline2.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame_isoline2.setObjectName("frame_isoline2")
+
         self.horizontalSlider_isoline2 = QtWidgets.QSlider(self.frame_isoline2)
         self.horizontalSlider_isoline2.setGeometry(QtCore.QRect(3, 0, 103, 21))
         self.horizontalSlider_isoline2.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider_isoline2.setObjectName("horizontalSlider_isoline2")
-        self.lineEdit_isoline2 = QtWidgets.QLineEdit(self.frame_isoline2)
-        self.lineEdit_isoline2.setGeometry(QtCore.QRect(109, 0, 30, 20))
-        self.lineEdit_isoline2.setFont(line_edit_font)
-        self.lineEdit_isoline2.setObjectName("lineEdit_isoline2")
+
+        # self.lineEdit_isoline2 = QtWidgets.QLineEdit(self.frame_isoline2)
+        # self.lineEdit_isoline2.setGeometry(QtCore.QRect(109, 0, 30, 20))
+        # self.lineEdit_isoline2.setFont(line_edit_font)
+        # self.lineEdit_isoline2.setObjectName("lineEdit_isoline2")
+
+        #edit####
+        self.label_isoline2_value = QtWidgets.QLabel(self.frame_isoline2)
+        self.label_isoline2_value.setGeometry(QtCore.QRect(109, 0, 30, 20))
+        self.label_isoline2_value.setText("")
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.label_isoline2_value.setFont(font)
+        self.label_isoline2_value.setObjectName("label_isoline2_value")
+        self.label_isoline2_value.setFrameShape(QtWidgets.QFrame.Box)
+
         self.frame_isoline3 = QtWidgets.QFrame(self.groupBox_data_properties)
         self.frame_isoline3.setGeometry(QtCore.QRect(57, 230, 140, 21))
         self.frame_isoline3.setFrameShape(QtWidgets.QFrame.Box)
@@ -570,10 +672,25 @@ class Ui_MainWindow(object):
         self.horizontalSlider_isoline3.setGeometry(QtCore.QRect(3, 0, 103, 21))
         self.horizontalSlider_isoline3.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider_isoline3.setObjectName("horizontalSlider_isoline3")
-        self.lineEdit_isoline3 = QtWidgets.QLineEdit(self.frame_isoline3)
-        self.lineEdit_isoline3.setGeometry(QtCore.QRect(109, 0, 30, 20))
-        self.lineEdit_isoline3.setFont(line_edit_font)
-        self.lineEdit_isoline3.setObjectName("lineEdit_isoline3")
+
+        # self.lineEdit_isoline3 = QtWidgets.QLineEdit(self.frame_isoline3)
+        # self.lineEdit_isoline3.setGeometry(QtCore.QRect(109, 0, 30, 20))
+        # self.lineEdit_isoline3.setFont(line_edit_font)
+        # self.lineEdit_isoline3.setObjectName("lineEdit_isoline3")
+
+        self.label_isoline3_value = QtWidgets.QLabel(self.frame_isoline3)
+        self.label_isoline3_value.setGeometry(QtCore.QRect(109, 0, 30, 20))
+        self.label_isoline3_value.setText("")
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.label_isoline3_value.setFont(font)
+        self.label_isoline3_value.setObjectName("label_isoline3_value")
+        self.label_isoline3_value.setFrameShape(QtWidgets.QFrame.Box)
+
+
         self.pushButton_dataproperties_reset = QtWidgets.QPushButton(self.groupBox_data_properties)
         self.pushButton_dataproperties_reset.setGeometry(QtCore.QRect(6, 259, 93, 21))
         font = QtGui.QFont()
@@ -614,15 +731,24 @@ class Ui_MainWindow(object):
         self.groupBox_datadirectory.setFont(font)
         self.groupBox_datadirectory.setAlignment(QtCore.Qt.AlignCenter)
         self.groupBox_datadirectory.setObjectName("groupBox_datadirectory")
+
         self.pushButton_obs_dir = QtWidgets.QPushButton(self.groupBox_datadirectory)
-        self.pushButton_obs_dir.setGeometry(QtCore.QRect(158, 42, 41, 18))
+        self.pushButton_obs_dir.setGeometry(QtCore.QRect(158, 41, 42, 20))
         self.pushButton_obs_dir.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("asset/file.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("C:/Users/Phoenix/Desktop/contourdiff-master/file.png"), QtGui.QIcon.Normal, QtGui.QIcon.On)
+
         self.pushButton_obs_dir.setIcon(icon)
         self.pushButton_obs_dir.setObjectName("pushButton_obs_dir")
+        self.pushButton_obs_dir.clicked.connect(self.fileDialog)
+
+        # self.pushButton_observation_directory = QtWidgets.QPushButton(self.groupBox_datadirectory)
+        # self.pushButton_observation_directory.setGeometry(QtCore.QRect(158, 42, 42, 18))
+        # self.pushButton_observation_directory.setText("Hi")
+        # self.pushButton_observation_directory.setObjectName("pushButton_observation_directory")
+
         self.label_obs_dir = QtWidgets.QLabel(self.groupBox_datadirectory)
-        self.label_obs_dir.setGeometry(QtCore.QRect(6, 42, 193, 18))
+        self.label_obs_dir.setGeometry(QtCore.QRect(6, 42, 153, 18))
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
@@ -645,11 +771,11 @@ class Ui_MainWindow(object):
         self.label_currentfile.setLineWidth(1)
         self.label_currentfile.setMidLineWidth(0)
         self.label_currentfile.setObjectName("label_currentfile")
-        self.pushButton_currentfile = QtWidgets.QPushButton(self.groupBox_datadirectory)
-        self.pushButton_currentfile.setGeometry(QtCore.QRect(158, 20, 41, 18))
-        self.pushButton_currentfile.setText("")
-        self.pushButton_currentfile.setIcon(icon)
-        self.pushButton_currentfile.setObjectName("pushButton_currentfile")
+        # self.pushButton_currentfile = QtWidgets.QPushButton(self.groupBox_datadirectory)
+        # self.pushButton_currentfile.setGeometry(QtCore.QRect(158, 20, 41, 18))
+        # self.pushButton_currentfile.setText("")
+        # self.pushButton_currentfile.setIcon(icon)
+        # self.pushButton_currentfile.setObjectName("pushButton_currentfile")
         self.dist_canvas = DistrbutionCanvas(self.groupBox_data_properties)
         self.dist_canvas.setGeometry(QtCore.QRect(7, 75, 191, 101))
     def setConstants(self):
@@ -658,6 +784,7 @@ class Ui_MainWindow(object):
         self.comboBox_color_lines_values = ['copper','binary', 'gist_yarg', 'gist_gray', 'gray', 'bone', 'pink',
             'spring', 'summer', 'autumn', 'winter', 'cool', 'Wistia',
             'hot', 'afmhot', 'gist_heat' ]
+        self.comboBox_color_vector_high2low_values = ['black', 'blue', 'green', 'red']
 
     def setGlobalVariables(self):
         self.filenameToPathDict = {}
@@ -736,8 +863,8 @@ class Ui_MainWindow(object):
         self.pushButton_dataproperties_apply.setText(_translate("MainWindow", "Apply"))
         self.label_column_name.setText(_translate("MainWindow", "Column Name"))
         self.groupBox_datadirectory.setTitle(_translate("MainWindow", "Data Directory"))
-        self.label_obs_dir.setText(_translate("MainWindow", "Observation directory"))
-        self.label_currentfile.setText(_translate("MainWindow", "Current file"))
+        self.label_obs_dir.setText(_translate("MainWindow", "Observation directory ..."))
+        self.label_currentfile.setText(_translate("MainWindow", "Current file ..."))
         self.groupBox_content_properties.setTitle(_translate("MainWindow", "Content Properties"))
         self.groupBox_contours.setTitle(_translate("MainWindow", "Contours"))
         self.checkBox_fill_contours.setText(_translate("MainWindow", "Yes"))
@@ -747,7 +874,7 @@ class Ui_MainWindow(object):
         self.comboBox_colormap_contours.setCurrentText(_translate("MainWindow", "Colormap 1"))
         self.comboBox_colormap_contours.setItemText(0, _translate("MainWindow", "Colormap 1"))
         self.groupBox_lines.setTitle(_translate("MainWindow", "Lines"))
-        self.label_color_lines.setText(_translate("MainWindow", "Color"))
+        self.label_color_lines.setText(_translate("MainWindow", "Colormap"))
         self.label_opacity.setText(_translate("MainWindow", "Opacity"))
         self.comboBox_color_lines.setCurrentText(_translate("MainWindow", "copper"))
         self.comboBox_color_lines.setItemText(0, _translate("MainWindow", "copper"))
@@ -755,19 +882,25 @@ class Ui_MainWindow(object):
         self.tabWidget_content_properties.setTabText(self.tabWidget_content_properties.indexOf(self.Contour),
                                                      _translate("MainWindow", "Contours"))
         self.groupBox_arrow.setTitle(_translate("MainWindow", "Arrow"))
-        self.label_arrow_width.setText(_translate("MainWindow", "Arrow Width"))
-        self.label_arrow_length.setText(_translate("MainWindow", "Arrow Length"))
-        self.label_arrow_color.setText(_translate("MainWindow", "Color (Positive)"))
+        #self.label_arrow_width.setText(_translate("MainWindow", "Arrow Width"))
+        self.label_arrow_scale.setText(_translate("MainWindow", "Arrow Scale"))
+# EDIT ####
+        self.comboBox_arrow_scale.setCurrentText(_translate("MainWindow", "Linear"))
+        self.comboBox_arrow_scale.setItemText(0, _translate("MainWindow", "Linear"))
+###############
+        self.label_arrow_color.setText(_translate("MainWindow", "Color (Low to High)"))
         self.comboBox_arrow_color.setCurrentText(_translate("MainWindow", "Black"))
         self.comboBox_arrow_color.setItemText(0, _translate("MainWindow", "Black"))
-        self.label_arrow_color_2.setText(_translate("MainWindow", "Color (Negative)"))
-        self.comboBox_arrow_color_2.setCurrentText(_translate("MainWindow", "Black"))
-        self.comboBox_arrow_color_2.setItemText(0, _translate("MainWindow", "Black"))
+
+        self.label_arrow_color_2.setText(_translate("MainWindow", "Color (High to Low)"))
+        self.comboBox_arrow_color_2.setCurrentText(_translate("MainWindow", "black"))
+        self.comboBox_arrow_color_2.setItemText(0, _translate("MainWindow", "black"))
+
         self.tabWidget_content_properties.setTabText(self.tabWidget_content_properties.indexOf(self.tab_2),
                                                      _translate("MainWindow", "Vector"))
-        self.label_X.setText(_translate("MainWindow", "X:"))
-        self.label_Y.setText(_translate("MainWindow", "Y:"))
-        self.label_value.setText(_translate("MainWindow", "Value: "))
+        #self.label_X.setText(_translate("MainWindow", "X:"))
+        #self.label_Y.setText(_translate("MainWindow", "Y:"))
+        #self.label_value.setText(_translate("MainWindow", "Value: "))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.actionOpen.setText(_translate("MainWindow", "Open"))
         self.actionOpen.setShortcut(_translate("MainWindow", "Ctrl+o"))
@@ -809,41 +942,49 @@ class Ui_MainWindow(object):
         self.comboBox_column_name.clear()
         self.comboBox_column_name.addItems(self.column_list)
 
+### ISOLINES#############
+
     def setIsoLineSlider1(self):
         self.horizontalSlider_isoline1.setMinimum(0)
         self.horizontalSlider_isoline1.setMaximum(100)
         self.horizontalSlider_isoline1.setTickInterval(1)
         self.horizontalSlider_isoline1.setValue(25)
-        self.lineEdit_isoline1.setText(str(self.horizontalSlider_isoline1.value() / 100))
+        #self.lineEdit_isoline1.setText(str(self.horizontalSlider_isoline1.value() / 100))
+        self.label_isoline1_value.setText(str(self.horizontalSlider_isoline1.value() / 100))
         self.horizontalSlider_isoline1.valueChanged.connect(self.setIsoLineSlider1Listener)
 
     def setIsoLineSlider1Listener(self):
         value = self.horizontalSlider_isoline1.value() / 100
-        self.lineEdit_isoline1.setText(str(value))
+        #self.lineEdit_isoline1.setText(str(value))
+        self.label_isoline1_value.setText(str(value))
 
     def setIsoLineSlider2(self):
         self.horizontalSlider_isoline2.setMinimum(0)
         self.horizontalSlider_isoline2.setMaximum(100)
         self.horizontalSlider_isoline2.setTickInterval(1)
         self.horizontalSlider_isoline2.setValue(50)
-        self.lineEdit_isoline2.setText(str(self.horizontalSlider_isoline2.value() / 100))
+        #self.lineEdit_isoline2.setText(str(self.horizontalSlider_isoline2.value() / 100))
+        self.label_isoline2_value.setText(str(self.horizontalSlider_isoline2.value() / 100))
         self.horizontalSlider_isoline2.valueChanged.connect(self.setIsoLineSlider2Listener)
 
     def setIsoLineSlider2Listener(self):
         value = self.horizontalSlider_isoline2.value() / 100
-        self.lineEdit_isoline2.setText(str(value))
+        #self.lineEdit_isoline2.setText(str(value))
+        self.label_isoline2_value.setText(str(value))
 
     def setIsoLineSlider3(self):
         self.horizontalSlider_isoline3.setMinimum(0)
         self.horizontalSlider_isoline3.setMaximum(100)
         self.horizontalSlider_isoline3.setTickInterval(1)
         self.horizontalSlider_isoline3.setValue(75)
-        self.lineEdit_isoline3.setText(str(self.horizontalSlider_isoline3.value() / 100))
+        #self.lineEdit_isoline3.setText(str(self.horizontalSlider_isoline3.value() / 100))
+        self.label_isoline3_value.setText(str(self.horizontalSlider_isoline3.value() / 100))
         self.horizontalSlider_isoline3.valueChanged.connect(self.setIsoLineSlider3Listener)
 
     def setIsoLineSlider3Listener(self):
         value = self.horizontalSlider_isoline3.value() / 100
-        self.lineEdit_isoline3.setText(str(value))
+        #self.lineEdit_isoline3.setText(str(value))
+        self.label_isoline3_value.setText(str(value))
 
 
 
@@ -901,14 +1042,16 @@ class Ui_MainWindow(object):
         self.horizontalSlider_magnitude.setMaximum(magnitude.max())
         self.horizontalSlider_magnitude.setTickInterval(1)
         self.horizontalSlider_magnitude.setValue(magnitude.min())
-        self.lineEdit_magnitude.setText(str(self.horizontalSlider_magnitude.value()))
+        #self.lineEdit_magnitude.setText(str(self.horizontalSlider_magnitude.value()))
+        self.label__magnitude_value.setText(str(self.horizontalSlider_magnitude.value()))
         self.groupBox_map_properties.setEnabled(True)
     def magnitudeValueChanged(self):
         self.horizontalSlider_magnitude.valueChanged.connect(self.setHorizontalMagnitudeListener)
 
     def setHorizontalMagnitudeListener(self):
         value = self.horizontalSlider_magnitude.value() / 100
-        self.lineEdit_magnitude.setText(str(value))
+        #self.lineEdit_magnitude.setText(str(value))
+        self.label__magnitude_value.setText(str(value))
 
     def directionCheckBoxHandler(self):
         """direction flag for checkbox
@@ -936,8 +1079,8 @@ class Ui_MainWindow(object):
     def contentCheckBoxHandler(self):
         """content flag for checkbox
         * 0 for both
-        * 1 for postive vector only
-        * 2 for negative vector only
+        * 1 for basemap only
+        * 2 for vector only
         * -1 if none selected
         """
         flag = -1
@@ -952,6 +1095,19 @@ class Ui_MainWindow(object):
         elif vector:
             flag = 2
 
+        else:
+            flag = -1
+        return flag
+## EDIT ##############
+    def fillcontourCheckBoxHandler(self):
+        """fill contour flag for checkbox
+        * 1 for checked
+        * -1 for not checked
+        """
+        flag = -1
+        fill_contour = self.checkBox_fill_contours.isChecked()
+        if fill_contour:
+            flag = 1
         else:
             flag = -1
         return flag
@@ -983,11 +1139,13 @@ class Ui_MainWindow(object):
         cmap = self.combox_color_map_values[cmap_index - 1]
         cline_index = self.comboBox_color_lines.currentIndex()
         cline = self.comboBox_color_lines_values[cline_index - 1]
+        # cvector_high2low_index = self.comboBox_arrow_color_2.currentIndex()
+        # cvector_high2low = self.comboBox_color_vector_high2low_values[cvector_high2low_index - 1]
         line_alpha = self.horizontalSlider_opacity_lines.value() / 100
         line_width = self.horizontalSlider_line_width.value()/10
 
         self.canvas.generate_images(self.filtered_graph,self.data,self.getcutOffValues(),column,alpha,self.directionCheckBoxHandler(),
-                                    self.contentCheckBoxHandler(),magnitude,cmap,cline,line_alpha,line_width)
+                                    self.contentCheckBoxHandler(),self.fillcontourCheckBoxHandler,magnitude,cmap,cline,line_alpha,line_width,)
     def setColorMapCombobox(self):
         self.comboBox_colormap_contours.addItems(self.combox_color_map_values)
         self.comboBox_colormap_contours.currentIndexChanged.connect(self.colorcombox_change_listener)
@@ -997,19 +1155,32 @@ class Ui_MainWindow(object):
             worker = Worker(self.draw_diagram)
             worker.signals.finished.connect(self.thread_complete)
             self.threadpool.start(worker)
-
+## EDIT ###########
+    def setFilledContourCheckBox(self):
+        self.checkBox_fill_contours.clicked.connect(self.FilledContourValueChanged)
+        self.checkBox_fill_contours.clicked.connect(self.filled_contour_change_listener)
+    def FilledContourValueChanged(self):
+        return self.fillcontourCheckBoxHandler()
+    def filled_contour_change_listener(self):
+        if (self.filenameToPathDict):
+            worker = Worker(self.draw_diagram)
+            worker.signals.finished.connect(self.thread_complete)
+            self.threadpool.start(worker)
+####################
     def setHorizontalSliderOpacityContours(self):
         self.horizontalSlider_opacity_contours.setMinimum(0)
         self.horizontalSlider_opacity_contours.setMaximum(100)
         self.horizontalSlider_opacity_contours.setTickInterval(1)
         self.horizontalSlider_opacity_contours.setValue(75)
-        self.lineEdit_opacity_contours.setText(str(self.horizontalSlider_opacity_contours.value() / 100))
+        #self.lineEdit_opacity_contours.setText(str(self.horizontalSlider_opacity_contours.value() / 100))
+        self.label_opacity_contours_value.setText(str(self.horizontalSlider_opacity_contours.value() / 100))
         self.horizontalSlider_opacity_contours.valueChanged.connect(self.setHorizontalSliderValueChanged)
         self.horizontalSlider_opacity_contours.sliderReleased.connect(self.setHorizontalSliderListener)
 
     def setHorizontalSliderValueChanged(self):
         value = self.horizontalSlider_opacity_contours.value() / 100
-        self.lineEdit_opacity_contours.setText(str(value))
+        #self.lineEdit_opacity_contours.setText(str(value))
+        self.label_opacity_contours_value.setText(str(value))
 
     def setHorizontalSliderListener(self):
         value = self.horizontalSlider_opacity_contours.value() / 100
@@ -1025,17 +1196,31 @@ class Ui_MainWindow(object):
             worker = Worker(self.draw_diagram)
             worker.signals.finished.connect(self.thread_complete)
             self.threadpool.start(worker)
+# EDIT ###########
+#     def setVectorColorHigh2Low(self):
+#         self.comboBox_arrow_color_2.addItems(self.comboBox_color_vector_high2low_values)
+#         self.comboBox_arrow_color_2.currentIndexChanged.connect(self.color_vector_high2low_change_listener)
+#
+#     def color_vector_high2low_change_listener(self):
+#         if (self.filenameToPathDict):
+#             worker = Worker(self.draw_diagram)
+#             worker.signals.finished.connect(self.thread_complete)
+#             self.threadpool.start(worker)
+###########################
+
     def setContourLineOppacity(self):
         self.horizontalSlider_opacity_lines.setMinimum(0)
         self.horizontalSlider_opacity_lines.setMaximum(100)
         self.horizontalSlider_opacity_lines.setTickInterval(1)
         self.horizontalSlider_opacity_lines.setValue(75)
-        self.lineEdit_opacity_lines.setText(str(self.horizontalSlider_opacity_lines.value() / 100))
+        #self.lineEdit_opacity_lines.setText(str(self.horizontalSlider_opacity_lines.value() / 100))
+        self.label_opacity_lines_value.setText(str(self.horizontalSlider_opacity_lines.value() / 100))
         self.horizontalSlider_opacity_lines.valueChanged.connect(self.setContourLineOpacityChanged)
         self.horizontalSlider_opacity_lines.sliderReleased.connect(self.setContourLineOpacitySliderReleased)
     def setContourLineOpacityChanged(self):
         value = self.horizontalSlider_opacity_lines.value() / 100
-        self.lineEdit_opacity_lines.setText(str(value))
+        #self.lineEdit_opacity_lines.setText(str(value))
+        self.label_opacity_lines_value.setText(str(value))
     def setContourLineOpacitySliderReleased(self):
         if (self.filenameToPathDict):
             worker = Worker(self.draw_diagram)
@@ -1047,12 +1232,14 @@ class Ui_MainWindow(object):
         self.horizontalSlider_line_width.setMaximum(30)
         self.horizontalSlider_line_width.setTickInterval(1)
         self.horizontalSlider_line_width.setValue(15)
-        self.lineEdit_line_width.setText(str(self.horizontalSlider_line_width.value()/10))
+        #self.lineEdit_line_width.setText(str(self.horizontalSlider_line_width.value()/10))
+        self.label_line_width_value.setText(str(self.horizontalSlider_line_width.value()/10))
         self.horizontalSlider_line_width.valueChanged.connect(self.setContourLineWidthChanged)
         self.horizontalSlider_line_width.sliderReleased.connect(self.contourLineWidthSliderReleased)
     def setContourLineWidthChanged(self):
         value = self.horizontalSlider_line_width.value()/10
-        self.lineEdit_line_width.setText(str(value))
+        #self.lineEdit_line_width.setText(str(value))
+        self.label_line_width_value.setText(str(value))
     def contourLineWidthSliderReleased(self):
         if (self.filenameToPathDict):
             worker = Worker(self.draw_diagram)
