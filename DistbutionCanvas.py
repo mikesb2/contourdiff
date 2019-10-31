@@ -19,6 +19,7 @@ class DistrbutionCanvas(FigureCanvas):
                     top=True, right=True, left=True, bottom=True)
         plot = sns.distplot(data['levels'], ax=self.axes)
 
+
         plot.set_yticks([])
 
     def clearPlt(self):

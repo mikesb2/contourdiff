@@ -41,7 +41,7 @@ class Canvas(FigureCanvas):
     def plot_contour(self,data,level):
         self.axes.contour(np.array(data['levels']).reshape(699, 639), level, colors=['g', 'r', 'y'])
         self.draw()
-    def generate_images(self,filtered_graph,data,levels,column,alpha_cf = 0.7,flag_dir = 0,flag_content = 0,magnitude = 0,
+    def generate_images(self,filtered_graph,data,levels,column,alpha_cf = 0.7,flag_dir = 0,flag_content = 0, flag_fillcontours = 1, magnitude = 0,
                         cmap='Colormap 1',cline='copper',line_opacity = 0.4,line_width=1.5):
         cmap_dict =  {'Colormap 1':['#7fc97f','#beaed4','#fdc086','#ffff99'],
         'Colormap 2':['#1b9e77','#d95f02','#7570b3','#e7298a'],
@@ -49,6 +49,7 @@ class Canvas(FigureCanvas):
         'Colormap 4':['#e41a1c','#377eb8','#4daf4a','#984ea3'],
         'Colormap 5' :['#66c2a5','#fc8d62','#8da0cb','#e78ac3'],
         'Colormap 6':['#8dd3c7','#ffffb3','#bebada','#fb8072']}
+        # cvector_high2low_dict = {'black': '#000000', 'blue': '#0c86f1', 'green': '#136a0f', 'red': ' #e31414'}
         self.clearPlt2()
         filtered_graph = filtered_graph[
             ['level', 'node_x', 'node_y', 'path', 'aggregated_weight', 'actual_weight', 'normalized', 'res_dir_x',
@@ -59,6 +60,10 @@ class Canvas(FigureCanvas):
         self.axes.contour(np.array(data['levels']).reshape(699, 639), levels, cmap=cline, alpha=line_opacity,linewidths=line_width)
         if(flag_content == 0 or flag_content == 1):
             self.axes.contourf(np.array(data['levels']).reshape(699, 639), levels, colors=cmap_dict[cmap], alpha=alpha_cf)
+            # if(flag_fillcontour == 1):
+            #     self.axes.contourf(np.array(data['levels']).reshape(699, 639), levels, colors=cmap_dict[cmap], alpha=alpha_cf)
+            # if (flag_fillcontour == -1):
+            #     self.filledContour()
         filtered_graph = filtered_graph[filtered_graph['normalized'] >= 0.01]
         df1 = filtered_graph[(filtered_graph['resultant'] >= 0) & (filtered_graph['mag'] > magnitude)]
         df2 = filtered_graph[(filtered_graph['resultant'] < 0) & (filtered_graph['mag'] > magnitude)]
